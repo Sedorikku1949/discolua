@@ -1,0 +1,9 @@
+/target
+builds/*
+.cargo
+discolua.so
+note
+save.zip
+Cargo.lock
+test/config.json
+.idea

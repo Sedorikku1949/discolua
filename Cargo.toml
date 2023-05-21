@@ -1,0 +1,35 @@
+[package]
+name = "disco-lua"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+lua54 = ["mlua/lua54"]
+lua53 = ["mlua/lua53"]
+lua52 = ["mlua/lua52"]
+lua51 = ["mlua/lua51"]
+luajit = ["mlua/luajit"]
+
+[lib]
+crate-type = ["cdylib"]
+name = "discolua"
+
+[dependencies]
+mlua = { version = "0.8", features = ["send", "vendored", "module", "async"] }
+serde = "1.0.163"
+serde_derive = "1.0.163"
+serde_json = "1.0.96"
+chrono = "0.4.19"
+ureq = { version = "2.6.2", features = ["json", "charset", "tls"] }
+url = "2.3.1"
+regex = "1.5.4"
+flume = "0.10.14"
+mio = { version = "0.8.6", features = ["net", "os-poll"] }
+log = "0.4.17"
+tungstenite = { version = "0.19.0", features = ["handshake", "native-tls", "sha1", "url", "data-encoding"] }
+env_logger = "0.10.0"
+
+[dev-dependencies]
+mlua = { version = "0.8", features = ["luajit", "vendored", "module", "async"] }
